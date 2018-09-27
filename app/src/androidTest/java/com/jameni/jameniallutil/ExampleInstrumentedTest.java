@@ -18,9 +18,10 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        print("ddddddddd12311");
+    }
 
-        assertEquals("com.jameni.jameniallutil", appContext.getPackageName());
+    public void print(String str) {
+        System.out.println(str);
     }
 }
