@@ -1,14 +1,18 @@
 package com.jameni.allutillib.common;
 
+import android.content.Context;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.List;
+import java.util.Map;
 
 public class CommonUtil {
 
@@ -61,6 +65,13 @@ public class CommonUtil {
 
     }
 
+    public static void tip(Context context, String str) {
+        if (!isNotNull(context) || !isNotNull(str)) {
+            return;
+        }
+
+        ToastUtil.getInstance().showToast(context, str, 2300);
+    }
 
     /**
      * 判断对象是否为null
@@ -78,7 +89,7 @@ public class CommonUtil {
     }
 
 
-    public static boolean matchJsonArray(JSONArray array) {
+    public static boolean matchJSONArray(JSONArray array) {
 
         if (isNotNull(array)) {
             return array.length() > 0;
@@ -173,14 +184,6 @@ public class CommonUtil {
     }
 
 
-    public static int getJSONArraySize(JSONArray array) {
-        if (isNotNull(array)) {
-            return array.length();
-        }
-        return 0;
-    }
-
-
     public static JSONArray getJSONArray(JSONObject json, String key) {
         try {
             if (isNotNull(json)) {
@@ -201,7 +204,7 @@ public class CommonUtil {
 
     public static JSONObject getJSONArrayItem(JSONArray array, int i) {
         try {
-            if (isNotNull(array) && array.length() > 0) {
+            if (isNotNull(array) && array.length() > 0 && array.length() > i) {
                 return array.getJSONObject(i);
             }
         } catch (JSONException e) {
@@ -248,11 +251,51 @@ public class CommonUtil {
 
     }
 
+
+    public static int getListSize(Object obj) {
+        if (isNotNull(obj)) {
+            if (obj instanceof List) {
+
+                List list = toSelf(obj);
+                if (isNotNull(list)) {
+                    return list.size();
+                }
+
+
+            } else if (obj instanceof JSONArray) {
+
+                JSONArray array = toSelf(obj);
+                if (isNotNull(array)) {
+                    return array.length();
+                }
+
+            } else if (obj instanceof Map) {
+
+                Map map = toSelf(obj);
+                if (isNotNull(map)) {
+                    return map.size();
+                }
+
+            } else if (obj.getClass().isArray()) {
+
+                Object[] array = toSelf(obj);
+                if (isNotNull(array)) {
+                    return array.length;
+                }
+            }
+
+
+        }
+        return 0;
+    }
+
     //这个方法为了防止数组越界
-    public static Object getListItem(List list, int i) {
+    public static <T> T getListItem(List<T> list, int i) {
+
         if (matchList(list) && i >= 0 && list.size() > i) {
             return list.get(i);
         }
+
         return null;
     }
 
@@ -294,6 +337,23 @@ public class CommonUtil {
             return array;
         }
         return null;
+    }
+
+    public static <T> T toSelf(Object object) {
+        if (object == null) return null;
+        return (T) object;
+    }
+
+
+    //    要判断一个字符串是不是包含空格关检查 ' '
+    public static boolean hasSpace(final String s) {
+        if (s == null) return true;
+        for (int i = 0, len = s.length(); i < len; ++i) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

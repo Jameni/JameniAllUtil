@@ -2,7 +2,9 @@ package com.jameni.jameniallutil;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
+import com.jameni.allutillib.app.SystemUtil;
 import com.jameni.allutillib.common.CommonUtil;
 import com.jameni.allutillib.common.CountUtil;
 import com.jameni.allutillib.common.PrintUtil;
@@ -33,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         countUtil.start();
     }
 
+
+    public void click(View view) {
+
+        SystemUtil.launchAppDetailsSettings(this,"com.hy3d.wristband");
+
+    }
     public void print(String str) {
         PrintUtil.printMsg(str);
     }

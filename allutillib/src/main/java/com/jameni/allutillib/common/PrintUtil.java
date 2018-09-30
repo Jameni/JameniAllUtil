@@ -41,4 +41,7 @@ public class PrintUtil {
     public static void printMsg(boolean bool) {
         printMsg("printInfo", bool + "");
     }
+
+
+
 }
