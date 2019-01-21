@@ -103,7 +103,7 @@ public class SystemUtil {
     }
 
     //去系统设置页面
-    public void goSystemSettingPage(Activity activity) {
+    public static void goSystemSettingPage(Activity activity) {
         if (CommonUtil.isNotNull(activity)) {
             Intent intent = new Intent(Settings.ACTION_SETTINGS);
             activity.startActivity(intent);
