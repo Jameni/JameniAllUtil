@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void click(View view) {
 
+
 //        SystemUtil.launchAppDetailsSettings(this,"com.hy3d.wristband");
 
     }
