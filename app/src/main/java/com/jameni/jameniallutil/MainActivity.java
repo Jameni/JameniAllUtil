@@ -5,11 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.jameni.allutillib.common.CountUtil;
-import com.jameni.allutillib.common.FileUtil;
 import com.jameni.allutillib.common.PrintUtil;
 import com.jameni.allutillib.i.CountListener;
-
-import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 

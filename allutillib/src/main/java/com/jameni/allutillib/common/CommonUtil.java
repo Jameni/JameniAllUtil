@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -356,4 +357,18 @@ public class CommonUtil {
         return true;
     }
 
+    public static String getText(Object obj) {
+        String result = "";
+
+        if (isNotNull(obj)) {
+            if (obj instanceof TextView) {
+                TextView textView = (TextView) obj;
+                result = textView.getText().toString();
+            } else if (obj instanceof EditText) {
+                EditText editText = (EditText) obj;
+                result = editText.getText().toString();
+            }
+        }
+        return result;
+    }
 }
