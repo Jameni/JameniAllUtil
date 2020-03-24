@@ -4,8 +4,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 
-import java.io.Serializable;
-
 public class CopyUtil {
     /**
      * 实现文本复制功能

@@ -4,14 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
