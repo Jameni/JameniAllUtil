@@ -12,8 +12,9 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.content.FileProvider;
 import android.telephony.TelephonyManager;
+
+import androidx.core.content.FileProvider;
 
 import com.jameni.allutillib.common.CommonUtil;
 import com.jameni.allutillib.common.FileUtil;
